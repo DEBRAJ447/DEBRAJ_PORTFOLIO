@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0b0c" />
+  <meta name="description" content="Portfolio of Debraj Sadhukhan — BCA AI/ML student, web developer, and cybersecurity enthusiast." />
+  <title>Debraj Sadhukhan — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Redline Editorial: near-black negative space, bone reading surfaces, oxide-red punctuation, and magazine-like asymmetry. */
+    :root {
+      --charcoal:#0b0b0c; --paper:#f0ebe3; --bone:#e8e4dc; --graphite:#77716b; --redline:#a72e2e;
+      --ease-out:cubic-bezier(.23,1,.32,1);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; background:var(--charcoal); }
+    body { margin:0; min-width:320px; background:var(--charcoal); color:var(--bone); font-family:Manrope,sans-serif; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+    body.menu-is-open { overflow:hidden; }
+    ::selection { color:var(--charcoal); background:var(--paper); }
+    button,a { -webkit-tap-highlight-color:transparent; }
+    button { font:inherit; }
+    button:not(:disabled),a[href] { cursor:pointer; }
+    button:focus-visible,a:focus-visible { outline:2px solid currentColor; outline-offset:4px; }
+    .site-shell { position:relative; overflow:hidden; background:var(--charcoal); }
+    .site-grain { position:fixed; inset:0; z-index:10; pointer-events:none; opacity:.055; mix-blend-mode:screen; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E"); }
+    .folio-rail { position:fixed; left:19px; top:50%; z-index:20; display:flex; flex-direction:column; align-items:center; gap:18px; color:var(--graphite); font:9px "IBM Plex Mono",monospace; letter-spacing:.2em; writing-mode:vertical-rl; transform:translateY(-50%) rotate(180deg); }
+    .folio-rail i { width:1px; height:72px; display:block; background:var(--redline); }
+    .site-header { position:absolute; top:0; left:0; z-index:30; width:100%; height:80px; display:flex; align-items:center; justify-content:space-between; padding:21px 5.1vw 18px 6.2vw; border-bottom:1px solid rgba(232,228,220,.12); }
+    .brand-lockup { display:flex; align-items:center; gap:12px; padding:0; color:var(--bone); border:0; background:transparent; text-align:left; }
+    .brand-mark { width:30px; height:30px; display:grid; place-items:center; overflow:hidden; }
+    .brand-mark img { width:100%; height:100%; object-fit:contain; }
+    .brand-name { font:9px/1.17 "IBM Plex Mono",monospace; letter-spacing:.12em; }
+    .availability-pill,.menu-toggle { font:9px "IBM Plex Mono",monospace; letter-spacing:.14em; text-transform:uppercase; }
+    .availability-pill { position:absolute; left:50%; display:flex; align-items:center; gap:9px; color:var(--bone); transform:translateX(-50%); }
+    .availability-dot,.card-ping span { width:7px; height:7px; display:inline-block; border-radius:50%; background:var(--redline); box-shadow:0 0 0 4px rgba(167,46,46,.12); }
+    .menu-toggle { display:flex; align-items:center; gap:9px; padding:5px 0 5px 12px; color:var(--bone); border:0; border-left:1px solid rgba(232,228,220,.2); background:transparent; }
+    .menu-toggle .menu-icon { color:var(--redline); font-size:17px; line-height:1; }
+    .site-nav { position:fixed; top:0; right:0; z-index:25; width:min(360px,100vw); height:100vh; display:flex; flex-direction:column; justify-content:center; gap:17px; padding:80px 42px 40px; background:var(--redline); transform:translateX(100%); transition:transform 280ms var(--ease-out); }
+    .site-nav.is-open { transform:translateX(0); }
+    .site-nav button { display:flex; align-items:baseline; gap:17px; padding:7px 0; color:var(--paper); border:0; border-bottom:1px solid rgba(240,235,227,.27); background:transparent; font:34px "DM Serif Display",Georgia,serif; text-align:left; transition:color 180ms ease-out,padding-left 180ms var(--ease-out); }
+    .site-nav button span { color:rgba(240,235,227,.65); font:9px "IBM Plex Mono",monospace; }
+    .site-nav button:hover { padding-left:8px; color:var(--charcoal); }
+    .hero-section { position:relative; min-height:790px; padding:185px 10.3vw 52px 13.8vw; background:var(--charcoal); }
+    .hero-section::before { content:""; position:absolute; top:80px; right:8.2vw; width:1px; height:calc(100% - 132px); background:rgba(232,228,220,.11); }
+    .hero-watermark { position:absolute; top:75px; left:7.6vw; color:rgba(232,228,220,.045); font:clamp(120px,20.6vw,330px)/.85 "DM Serif Display",Georgia,serif; letter-spacing:-.08em; white-space:nowrap; pointer-events:none; user-select:none; }
+    .hero-layout { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1.06fr) minmax(280px,.72fr); gap:clamp(48px,7vw,132px); max-width:1240px; margin:0 auto; }
+    .hero-copy { min-width:0; padding-top:11px; }
+    .section-kicker,.mono-label,.timeline-date,.skill-number,.image-caption,.card-kicker,.card-footer,.card-url,.meta-detail,.quote-footer,.site-footer { font-family:"IBM Plex Mono",monospace; text-transform:uppercase; letter-spacing:.15em; }
+    .section-kicker { color:var(--redline); font-size:10px; font-weight:500; }
+    .hero-intro { max-width:430px; margin:52px 0 20px; color:var(--bone); font-size:14px; line-height:1.6; }
+    .red-slash { margin-right:8px; color:var(--redline); font-family:"IBM Plex Mono",monospace; font-weight:600; }
+    .hero-title,.section-heading-row h2,.journey-left h2,.contact-copy h2 { margin:0; color:var(--paper); font:400 clamp(72px,8.2vw,132px)/.86 "DM Serif Display",Georgia,serif; letter-spacing:-.055em; }
+    .hero-title em,.section-heading-row h2 em,.journey-left h2 em,.contact-copy h2 em,blockquote em,.contact-card h3 em { color:var(--redline); font-style:italic; }
+    .hero-title span { color:transparent; -webkit-text-stroke:1px rgba(232,228,220,.82); }
+    .hero-subtitle { max-width:485px; margin:29px 0 0; color:#a8a29b; font-size:13px; line-height:1.65; }
+    .hero-subtitle b { padding:0 7px; color:var(--redline); }
+    .hero-meta { display:flex; align-items:center; gap:14px; margin-top:32px; }
+    .location-tag { display:inline-flex; align-items:center; gap:7px; color:var(--paper); font:10px "IBM Plex Mono",monospace; letter-spacing:.08em; text-transform:uppercase; }
+    .location-tag .pin { color:var(--redline); }
+    .meta-line { width:48px; height:1px; background:var(--redline); }
+    .meta-detail { color:var(--graphite); font-size:9px; letter-spacing:.1em; }
+    .text-link { display:inline-flex; align-items:center; gap:12px; margin-top:63px; padding:0 0 8px; color:var(--paper); border:0; border-bottom:1px solid var(--redline); background:transparent; font:10px "IBM Plex Mono",monospace; letter-spacing:.13em; text-transform:uppercase; transition:gap 200ms var(--ease-out),color 180ms ease-out; }
+    .text-link:hover { gap:20px; color:#fff; }
+    .hero-side { display:flex; flex-direction:column; align-items:flex-end; padding-top:68px; }
+    .hero-image-wrap { position:relative; width:min(100%,420px); aspect-ratio:.78; overflow:hidden; background:#171617; }
+    .hero-image-wrap::after { content:""; position:absolute; inset:0; border:1px solid rgba(232,228,220,.16); pointer-events:none; }
+    .hero-image-wrap img { width:100%; height:100%; display:block; object-fit:cover; object-position:center 28%; filter:saturate(.72) contrast(1.06) brightness(.93); }
+    .image-caption { position:absolute; bottom:14px; left:16px; color:rgba(240,235,227,.76); font-size:8px; letter-spacing:.13em; }
+    .hero-index { align-self:flex-start; width:100%; max-width:420px; padding:28px 0 0 23px; border-left:1px solid var(--redline); }
+    .mono-label { color:var(--graphite); font-size:9px; font-weight:500; line-height:1.3; }
+    .hero-index ul { display:grid; gap:11px; margin:20px 0 0; padding:0; list-style:none; }
+    .hero-index li { display:flex; align-items:center; gap:8px; color:var(--paper); font-size:12px; }
+    .hero-index li .plus { color:var(--redline); }
+    .hero-bottom-line { position:absolute; right:8.2vw; bottom:52px; left:13.8vw; display:flex; align-items:center; gap:17px; color:var(--graphite); font:8px "IBM Plex Mono",monospace; letter-spacing:.17em; }
+    .hero-bottom-line .down { color:var(--redline); }
+    .line-grow { width:82px; height:1px; background:rgba(232,228,220,.17); }
+    .interests-section { position:relative; padding:156px 8.2vw 178px 13.8vw; background:var(--paper); color:var(--charcoal); }
+    .interests-section::before { content:""; position:absolute; top:0; right:8.2vw; width:1px; height:78px; background:var(--redline); }
+    .section-heading-row { display:flex; align-items:flex-end; justify-content:space-between; gap:50px; max-width:1180px; margin:0 auto 69px; }
+    .interests-section .section-kicker,.interests-section .mono-label { color:var(--redline); }
+    .section-heading-row h2 { margin-top:22px; color:var(--charcoal); font-size:clamp(64px,7.5vw,118px); line-height:.87; }
+    .section-aside { margin:0 2vw 4px 0; color:#706962; font-size:12px; line-height:1.75; text-align:right; }
+    .skill-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:58px 24px; max-width:1180px; margin:0 auto; }
+    .skill-card { position:relative; }
+    .skill-card.card-2,.skill-card.card-4 { margin-top:104px; }
+    .skill-media { position:relative; height:clamp(245px,29vw,390px); overflow:hidden; background:#242121; }
+    .skill-media::after { content:""; position:absolute; inset:0; border:1px solid rgba(240,235,227,.18); pointer-events:none; }
+    .skill-media img { width:100%; height:100%; display:block; object-fit:cover; filter:saturate(.72) contrast(1.06); transition:transform 450ms var(--ease-out),filter 450ms var(--ease-out); }
+    .skill-card:hover .skill-media img { transform:scale(1.035); filter:saturate(.94) contrast(1.08); }
+    .skill-number { position:absolute; top:16px; left:18px; z-index:1; color:var(--paper); font-size:10px; }
+    .skill-arrow { position:absolute; right:17px; bottom:15px; z-index:1; width:32px; height:32px; display:grid; place-items:center; color:var(--paper); border:1px solid rgba(240,235,227,.7); border-radius:50%; background:rgba(11,11,12,.42); font-size:17px; transition:color 180ms,background 180ms,transform 180ms var(--ease-out); }
+    .skill-card:hover .skill-arrow { color:var(--charcoal); background:var(--paper); transform:translate(3px,-3px); }
+    .skill-content { padding:21px 2px 0; border-top:1px solid rgba(11,11,12,.25); }
+    .skill-content .mono-label { color:#827970; }
+    .skill-content h3 { margin:13px 0 8px; color:var(--charcoal); font:400 clamp(25px,2.3vw,37px)/1 "DM Serif Display",Georgia,serif; letter-spacing:-.045em; }
+    .skill-content p { max-width:390px; margin:0; color:#706962; font-size:12px; line-height:1.65; }
+    .journey-section { position:relative; display:grid; grid-template-columns:minmax(300px,.9fr) minmax(420px,1.1fr); gap:clamp(70px,11vw,190px); padding:162px 8.2vw 176px 13.8vw; background:var(--charcoal); }
+    .journey-section::after { content:""; position:absolute; right:8.2vw; bottom:0; width:1px; height:72px; background:var(--redline); }
+    .journey-stamp { position:absolute; top:124px; right:11.5vw; color:var(--redline); font:29px/.7 "DM Serif Display",Georgia,serif; text-align:center; transform:rotate(13deg); }
+    .journey-stamp span { font:8px "IBM Plex Mono",monospace; letter-spacing:.13em; }
+    .journey-left h2 { margin:23px 0 31px; font-size:clamp(67px,8.2vw,128px); line-height:.81; }
+    .journey-lede { max-width:340px; margin:0; color:#99928a; font-size:13px; line-height:1.8; }
+    .journey-footnote { display:flex; align-items:center; gap:8px; margin-top:55px; color:var(--paper); font:10px "IBM Plex Mono",monospace; letter-spacing:.06em; }
+    .journey-right { padding-top:18px; }
+    .timeline { border-top:1px solid rgba(232,228,220,.22); }
+    .timeline-item { position:relative; display:grid; grid-template-columns:25px 1fr auto; gap:19px; align-items:start; padding:27px 0 31px; border-bottom:1px solid rgba(232,228,220,.18); }
+    .timeline-marker { position:relative; width:25px; height:25px; display:grid; place-items:center; border:1px solid var(--redline); border-radius:50%; }
+    .timeline-marker::after { content:""; position:absolute; top:24px; left:11px; width:1px; height:67px; background:linear-gradient(var(--redline),transparent); }
+    .timeline-item:last-child .timeline-marker::after { display:none; }
+    .timeline-marker span { width:7px; height:7px; border-radius:50%; background:var(--redline); }
+    .timeline-date { color:var(--redline); font-size:9px; }
+    .timeline-copy h3 { margin:10px 0 5px; color:var(--paper); font:400 29px "DM Serif Display",Georgia,serif; letter-spacing:-.04em; }
+    .timeline-copy p { margin:0; color:#979087; font-size:12px; }
+    .timeline-note { padding-top:1px; color:#77716b; font:9px "IBM Plex Mono",monospace; letter-spacing:.08em; text-transform:uppercase; }
+    .tools-block { padding-top:54px; }
+    .tools-block .mono-label { color:var(--redline); }
+    .tool-list { display:flex; flex-wrap:wrap; gap:9px; margin-top:20px; }
+    .tool-list span { padding:9px 13px 8px; color:var(--paper); border:1px solid rgba(232,228,220,.3); font:10px "IBM Plex Mono",monospace; letter-spacing:.06em; transition:color 180ms,border-color 180ms,background 180ms; }
+    .tool-list span:hover { color:var(--charcoal); border-color:var(--paper); background:var(--paper); }
+    .quote-section { position:relative; min-height:540px; overflow:hidden; padding:120px 13.8vw 106px; background:#872929; }
+    .quote-watermark { position:absolute; right:-1.5vw; bottom:-.13em; color:rgba(11,11,12,.1); font:clamp(150px,25vw,390px)/.75 "DM Serif Display",Georgia,serif; letter-spacing:-.09em; }
+    .quote-inner { position:relative; z-index:1; max-width:1060px; margin:0 auto; }
+    .light-kicker { color:rgba(240,235,227,.65); }
+    blockquote { max-width:780px; margin:37px 0 83px; color:var(--paper); font:400 clamp(54px,6.5vw,98px)/.91 "DM Serif Display",Georgia,serif; letter-spacing:-.06em; }
+    blockquote em { color:var(--charcoal); }
+    .quote-footer { display:flex; align-items:center; gap:20px; color:rgba(240,235,227,.74); font-size:9px; }
+    .quote-rule { width:98px; height:1px; background:rgba(240,235,227,.44); }
+    .quote-footer button { display:inline-flex; align-items:center; gap:10px; margin-left:auto; padding:0 0 7px; color:var(--paper); border:0; border-bottom:1px solid var(--paper); background:transparent; font:9px "IBM Plex Mono",monospace; letter-spacing:.12em; text-transform:uppercase; transition:gap 180ms var(--ease-out),color 180ms; }
+    .quote-footer button:hover { gap:18px; color:var(--charcoal); }
+    .contact-section { padding:153px 8.2vw 27px 13.8vw; background:var(--paper); color:var(--charcoal); }
+    .contact-grid { display:grid; grid-template-columns:minmax(0,.84fr) minmax(400px,1.16fr); gap:clamp(54px,9vw,150px); max-width:1180px; margin:0 auto 145px; }
+    .contact-section .section-kicker { color:var(--redline); }
+    .contact-copy h2 { margin:24px 0 28px; color:var(--charcoal); font-size:clamp(65px,7vw,110px); line-height:.83; }
+    .contact-lede { max-width:350px; margin:0; color:#6d665f; font-size:13px; line-height:1.8; }
+    .email-action { display:flex; align-items:center; gap:12px; max-width:100%; margin-top:34px; padding:0 0 12px; color:var(--charcoal); border:0; border-bottom:1px solid var(--charcoal); background:transparent; font:10px "IBM Plex Mono",monospace; letter-spacing:.04em; text-align:left; }
+    .email-action span:nth-child(2) { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .email-icon { color:var(--redline); font-size:17px; }
+    .email-action > span:last-child { margin-left:auto; }
+    .email-action:hover { color:var(--redline); }
+    .social-row { display:flex; flex-wrap:wrap; gap:24px; margin-top:26px; }
+    .social-row a { display:inline-flex; align-items:center; gap:8px; color:#6d665f; font:10px "IBM Plex Mono",monospace; letter-spacing:.07em; text-decoration:none; transition:color 180ms; }
+    .social-row a span:last-child { color:var(--redline); }
+    .social-row a:hover { color:var(--redline); }
+    .contact-art { position:relative; display:grid; place-items:center; min-height:470px; }
+    .contact-card-shadow { position:absolute; width:min(100%,460px); height:min(100%,380px); border:1px solid rgba(11,11,12,.26); transform:translate(20px,19px) rotate(4deg); }
+    .contact-card { position:relative; width:min(100%,480px); overflow:hidden; background:var(--charcoal); color:var(--paper); box-shadow:18px 24px 38px rgba(11,11,12,.14); transform:rotate(-3deg); transition:transform 400ms var(--ease-out),box-shadow 400ms var(--ease-out); }
+    .contact-art:hover .contact-card { box-shadow:25px 31px 48px rgba(11,11,12,.22); transform:rotate(0) translateY(-6px); }
+    .card-topbar { display:flex; align-items:center; justify-content:space-between; height:33px; padding:0 14px; color:#8d8781; border-bottom:1px solid rgba(232,228,220,.14); font:8px "IBM Plex Mono",monospace; letter-spacing:.09em; text-transform:uppercase; }
+    .window-dots { display:flex; gap:4px; }
+    .window-dots i { width:5px; height:5px; display:block; border:1px solid #77716b; border-radius:50%; }
+    .card-ping { display:flex; align-items:center; gap:6px; color:var(--redline); }
+    .card-ping span { width:5px; height:5px; box-shadow:none; }
+    .card-body { min-height:375px; padding:36px 44px 41px; background:linear-gradient(132deg,#121213 0%,#0b0b0c 70%); }
+    .card-brand { display:flex; align-items:center; gap:10px; color:#979087; font:8px/1.16 "IBM Plex Mono",monospace; letter-spacing:.12em; }
+    .mini-mark { position:relative; width:28px; height:28px; display:grid; place-items:center; color:var(--redline); border:1px solid var(--redline); font:17px "DM Serif Display",Georgia,serif; }
+    .mini-mark span { position:absolute; right:-5px; bottom:-8px; color:var(--paper); font-size:12px; font-style:italic; }
+    .card-kicker { display:block; margin-top:55px; color:var(--redline); font-size:8px; }
+    .contact-card h3 { margin:15px 0 30px; color:var(--paper); font:400 clamp(48px,5vw,73px)/.82 "DM Serif Display",Georgia,serif; letter-spacing:-.065em; }
+    .card-progress { max-width:260px; }
+    .card-progress > div:first-child { display:flex; justify-content:space-between; color:#77716b; font:8px "IBM Plex Mono",monospace; letter-spacing:.11em; }
+    .card-progress b { color:var(--paper); font-weight:500; }
+    .progress-track { height:3px; margin-top:8px; background:#292728; }
+    .progress-track i { display:block; width:72%; height:100%; background:var(--redline); }
+    .visit-button { display:inline-flex; align-items:center; gap:13px; margin-top:34px; padding:9px 0; color:var(--paper); border-bottom:1px solid var(--redline); font:9px "IBM Plex Mono",monospace; letter-spacing:.12em; text-decoration:none; text-transform:uppercase; transition:gap 180ms var(--ease-out),color 180ms; }
+    .visit-button:hover { gap:20px; color:var(--redline); }
+    .card-footer { display:flex; justify-content:space-between; padding:11px 14px 10px; color:#77716b; border-top:1px solid rgba(232,228,220,.14); font-size:7px; }
+    .site-footer { display:flex; justify-content:space-between; align-items:center; max-width:1180px; margin:0 auto; padding-top:23px; color:#77716b; border-top:1px solid rgba(11,11,12,.22); font-size:8px; }
+    .footer-dot { padding-left:5px; color:var(--redline); }
+    .site-footer button { width:29px; height:29px; display:grid; place-items:center; color:var(--charcoal); border:1px solid var(--charcoal); border-radius:50%; background:transparent; font-size:15px; transition:color 180ms,background 180ms; }
+    .site-footer button:hover { color:var(--paper); background:var(--charcoal); }
+    .reveal { opacity:0; transform:translateY(22px); }
+    .reveal.is-visible { animation:reveal-up 650ms var(--ease-out) forwards; }
+    @keyframes reveal-up { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+    @media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto} *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal,.reveal.is-visible{opacity:1;transform:none} }
+    @media (max-width:980px) { .folio-rail{display:none}.site-header{padding-left:5.4vw}.hero-section,.interests-section,.journey-section,.contact-section{padding-left:8vw}.hero-bottom-line{left:8vw}.hero-section::before,.interests-section::before,.journey-section::after{right:5.4vw}.hero-layout{gap:5vw}.hero-title{font-size:clamp(64px,8.5vw,94px)}.section-heading-row h2,.journey-left h2,.contact-copy h2{font-size:clamp(59px,8.4vw,90px)}.contact-grid{grid-template-columns:minmax(0,.9fr) minmax(330px,1.1fr);gap:5vw}.card-body{padding:31px 34px 36px} }
+    @media (max-width:720px) { .site-header{height:70px;padding:16px 21px}.brand-mark{width:26px;height:26px}.availability-pill{position:static;margin-left:auto;margin-right:17px;transform:none}.availability-pill span:last-child{max-width:110px;font-size:7px;line-height:1.25}.menu-toggle{padding-left:10px;font-size:8px}.hero-section{min-height:auto;padding:138px 21px 75px}.hero-section::before{top:70px;right:21px;height:calc(100% - 95px)}.hero-watermark{top:97px;left:12px;font-size:18vw}.hero-layout{display:flex;flex-direction:column;gap:62px}.hero-copy{padding-top:0}.hero-intro{margin-top:42px;font-size:12px}.hero-title{font-size:clamp(57px,17vw,82px);line-height:.88}.hero-subtitle{margin-top:25px;font-size:11px}.hero-subtitle b{padding:0 4px}.hero-meta{flex-wrap:wrap;gap:10px;margin-top:26px}.meta-detail{font-size:8px}.text-link{margin-top:43px}.hero-side{align-items:flex-start;padding-top:0}.hero-image-wrap{width:calc(100% - 30px);margin-left:30px;aspect-ratio:1.04}.hero-index{max-width:calc(100% - 30px);margin-left:30px;padding-top:22px}.hero-bottom-line{position:static;margin-top:68px;gap:10px;font-size:7px}.line-grow{width:38px}.interests-section{padding:93px 21px 110px}.interests-section::before{right:21px;height:48px}.section-heading-row{display:block;margin-bottom:48px}.section-heading-row h2{margin-top:20px;font-size:clamp(59px,18vw,88px)}.section-aside{margin:29px 0 0;font-size:11px;text-align:left}.skill-grid{display:block}.skill-card,.skill-card.card-2,.skill-card.card-4{margin:0 0 56px}.skill-card:last-child{margin-bottom:0}.skill-media{height:330px}.journey-section{display:block;padding:101px 21px 113px}.journey-section::after{right:21px;height:46px}.journey-stamp{top:66px;right:37px;font-size:23px}.journey-left h2{margin-top:19px;font-size:clamp(61px,19vw,90px)}.journey-lede{max-width:360px;font-size:12px}.journey-footnote{margin-top:35px}.journey-right{padding-top:73px}.timeline-item{grid-template-columns:25px 1fr;gap:14px;padding:22px 0 25px}.timeline-note{grid-column:2;padding-top:0}.timeline-copy h3{font-size:25px}.tools-block{padding-top:42px}.quote-section{min-height:485px;padding:87px 21px 78px}.quote-watermark{right:-6vw;bottom:-.03em;font-size:42vw}blockquote{margin:31px 0 57px;font-size:clamp(51px,15.5vw,76px)}.quote-footer{display:block;font-size:8px}.quote-rule{display:block;width:74px;margin:16px 0 20px}.quote-footer button{margin:0;font-size:8px}.contact-section{padding:97px 21px 25px}.contact-grid{display:block;margin-bottom:97px}.contact-copy h2{margin-top:20px;font-size:clamp(61px,18.5vw,88px)}.contact-lede{font-size:12px}.email-action{max-width:100%;font-size:8px}.social-row{gap:17px}.social-row a{font-size:9px}.contact-art{min-height:415px;margin-top:71px}.contact-card-shadow{width:calc(100% - 25px);height:345px;transform:translate(14px,13px) rotate(4deg)}.contact-card{width:calc(100% - 7px);transform:rotate(-2.5deg)}.card-body{min-height:330px;padding:29px 27px 32px}.card-kicker{margin-top:39px}.contact-card h3{margin:14px 0 26px;font-size:clamp(47px,14vw,65px)}.site-footer{gap:13px;align-items:flex-start;padding-top:19px;font-size:7px;line-height:1.5} }
+    @media (max-width:390px) { .availability-pill span:last-child{max-width:88px}.brand-name{font-size:8px}.hero-title{font-size:56px}.hero-subtitle b{display:none}.hero-subtitle{max-width:270px}.location-tag{font-size:9px}.meta-detail{width:100%}.skill-media{height:290px} }
+    /* Latest Redline Editorial expansion: moving objects, project archive, working method, monogram seals, and print-like interludes. */
+    .hero-motion-object { position:absolute; z-index:0; display:block; pointer-events:none; will-change:transform,translate; }
+    .hero-motion-ring { top:17%; right:26%; width:132px; height:132px; border:1px solid rgba(167,46,46,.76); border-radius:50%; opacity:.9; transform:translate3d(calc(var(--pointer-x,0px)*.015),calc(var(--pointer-y,0px)*.015 + var(--scroll-shift,0px)),0); animation:ring-drift 8s ease-in-out infinite alternate; }
+    .hero-motion-ring::before,.hero-motion-ring::after { content:""; position:absolute; top:50%; left:50%; background:var(--redline); transform:translate(-50%,-50%); }
+    .hero-motion-ring::before { width:4px; height:4px; border-radius:50%; }
+    .hero-motion-ring::after { width:180%; height:1px; opacity:.34; transform:translate(-50%,-50%) rotate(-37deg); }
+    .hero-motion-cross { top:35%; right:11%; color:var(--redline); font:32px/1 "IBM Plex Mono",monospace; transform:translate3d(calc(var(--pointer-x,0px)*-.01),var(--scroll-shift,0px),0) rotate(12deg); animation:cross-drift 5.5s ease-in-out infinite alternate; }
+    .hero-motion-note { right:20%; bottom:19%; color:rgba(232,228,220,.35); font:8px "IBM Plex Mono",monospace; letter-spacing:.18em; transform:translate3d(calc(var(--pointer-x,0px)*.008),var(--scroll-shift,0px),0) rotate(-90deg); transform-origin:right center; animation:note-breathe 4.5s ease-in-out infinite alternate; }
+    .hero-monogram-stamp { position:absolute; left:8.4%; bottom:15.5%; z-index:1; display:flex; align-items:center; gap:11px; color:rgba(232,228,220,.58); font:8px "IBM Plex Mono",monospace; letter-spacing:.15em; transform:rotate(-9deg); }
+    .hero-monogram-stamp::before { content:""; width:34px; height:1px; background:var(--redline); }
+    .hero-monogram-stamp img { width:42px; height:42px; display:block; object-fit:contain; filter:drop-shadow(0 8px 10px rgba(0,0,0,.24)); animation:stamp-float 4.5s ease-in-out infinite alternate; }
+    .interest-margin-note { position:absolute; top:154px; right:2.3vw; display:grid; gap:9px; color:#827970; font:8px "IBM Plex Mono",monospace; letter-spacing:.15em; writing-mode:vertical-rl; transform:rotate(180deg); }
+    .interest-margin-note i { width:1px; height:60px; display:block; margin:0 auto; background:var(--redline); }
+    .skill-media::before { content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(145deg,rgba(11,11,12,.24),transparent 50%,rgba(167,46,46,.2)); mix-blend-mode:multiply; pointer-events:none; }
+    .skill-media-sweep { position:absolute; top:-25%; left:-31%; z-index:1; width:18%; height:155%; background:linear-gradient(90deg,transparent,rgba(240,235,227,.28),transparent); opacity:0; transform:translateX(-120%) rotate(16deg); transition:opacity 180ms ease-out,transform 650ms var(--ease-out); pointer-events:none; }
+    .skill-media-orbit { position:absolute; right:10%; bottom:12%; z-index:1; width:62px; height:62px; border:1px solid rgba(240,235,227,.48); border-radius:50%; opacity:.7; animation:orbit-spin 12s linear infinite; pointer-events:none; }
+    .skill-media-orbit::after { content:""; position:absolute; top:50%; right:-4px; width:7px; height:7px; border-radius:50%; background:var(--redline); transform:translateY(-50%); }
+    .skill-card { transition:translate 300ms var(--ease-out); }
+    .skill-card:hover { translate:0 -6px; }
+    .skill-card:hover .skill-media img { transform:scale(1.035); filter:saturate(.94) contrast(1.08); }
+    .skill-card:hover .skill-media-sweep { opacity:1; transform:translateX(680%) rotate(16deg); }
+    .archive-section { position:relative; padding:142px 8.2vw 154px 13.8vw; background:#141313; color:var(--paper); }
+    .archive-section::before { content:"ARCHIVE / 001"; position:absolute; top:54px; right:8.2vw; color:rgba(232,228,220,.38); font:8px "IBM Plex Mono",monospace; letter-spacing:.16em; transform:rotate(90deg); transform-origin:right top; }
+    .archive-heading { display:flex; align-items:end; justify-content:space-between; gap:45px; max-width:1180px; margin:0 auto 67px; }
+    .archive-heading h2,.process-heading h2 { margin:21px 0 0; color:var(--paper); font:400 clamp(62px,7vw,105px)/.86 "DM Serif Display",Georgia,serif; letter-spacing:-.055em; }
+    .archive-heading h2 em,.process-heading h2 em { color:var(--redline); font-style:italic; }
+    .archive-seal { display:flex; align-items:center; gap:9px; margin-top:28px; color:#8c837a; font:8px "IBM Plex Mono",monospace; letter-spacing:.14em; }
+    .archive-seal img { width:31px; height:31px; display:block; object-fit:contain; filter:drop-shadow(0 5px 8px rgba(0,0,0,.24)); }
+    .archive-note { display:flex; max-width:325px; gap:10px; padding-bottom:4px; }
+    .archive-note p { margin:0; color:#98918a; font-size:12px; line-height:1.75; }
+    .archive-grid { display:grid; grid-template-columns:1.08fr .84fr 1fr; gap:17px; max-width:1180px; margin:0 auto; }
+    .archive-card { min-height:330px; border:1px solid rgba(232,228,220,.2); background:#1b1819; transition:translate 300ms var(--ease-out),border-color 220ms ease-out,background 220ms ease-out; }
+    .archive-card:nth-child(2) { margin-top:62px; } .archive-card:nth-child(3) { margin-top:17px; }
+    .archive-card:hover { translate:0 -8px; border-color:var(--redline); background:#21191a; }
+    .archive-card-top { display:flex; justify-content:space-between; padding:17px 18px; color:var(--graphite); border-bottom:1px solid rgba(232,228,220,.16); font:8px "IBM Plex Mono",monospace; letter-spacing:.14em; }
+    .archive-card-mark { color:var(--redline); font-size:15px; transition:transform 220ms var(--ease-out); }
+    .archive-card:hover .archive-card-mark { transform:translate(3px,-3px); }
+    .archive-card-body { position:relative; min-height:274px; padding:27px 22px 21px; }
+    .archive-status { color:var(--redline); font:8px "IBM Plex Mono",monospace; letter-spacing:.11em; }
+    .archive-symbol { margin-top:30px; color:var(--paper); font:italic clamp(80px,9vw,132px)/.78 "DM Serif Display",Georgia,serif; letter-spacing:-.12em; opacity:.86; }
+    .archive-card:nth-child(2) .archive-symbol { color:var(--redline); } .archive-card:nth-child(3) .archive-symbol { color:rgba(232,228,220,.58); }
+    .archive-card-body p { position:absolute; right:22px; bottom:20px; left:22px; margin:0; color:#979087; font-size:11px; line-height:1.65; }
+    .process-section { padding:117px 8.2vw 137px 13.8vw; background:var(--paper); color:var(--charcoal); }
+    .process-heading { position:relative; max-width:1180px; margin:0 auto 55px; } .process-heading .section-kicker { color:var(--redline); }
+    .process-heading h2 { color:var(--charcoal); }
+    .process-margin-note { position:absolute; top:2px; right:0; color:#827970; font:8px "IBM Plex Mono",monospace; letter-spacing:.15em; transform:rotate(-90deg) translateX(100%); transform-origin:top right; }
+    .process-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); max-width:1180px; margin:0 auto; border-top:1px solid rgba(11,11,12,.28); }
+    .process-step { position:relative; min-height:205px; padding:23px 24px 27px 0; border-right:1px solid rgba(11,11,12,.22); transition:translate 260ms var(--ease-out); }
+    .process-step + .process-step { padding-left:24px; } .process-step:last-child { border-right:0; } .process-step:hover { translate:0 -6px; }
+    .process-number { color:var(--redline); font:9px "IBM Plex Mono",monospace; letter-spacing:.14em; }
+    .process-step h3 { margin:26px 0 10px; color:var(--charcoal); font:400 34px "DM Serif Display",Georgia,serif; letter-spacing:-.04em; }
+    .process-step p { max-width:260px; margin:0; color:#706962; font-size:12px; line-height:1.7; }
+    .process-arrow { position:absolute; right:25px; bottom:23px; color:var(--redline); font-size:18px; transition:transform 220ms var(--ease-out); } .process-step:hover .process-arrow { transform:translate(4px,-4px); }
+    .journey-signal { position:absolute; top:46%; right:8.2vw; z-index:0; display:flex; gap:8px; align-items:center; transform:translate3d(0,var(--scroll-shift,0px),0) rotate(-18deg); pointer-events:none; }
+    .journey-signal span { width:4px; height:4px; display:block; border-radius:50%; background:var(--redline); animation:signal-pulse 2.7s ease-in-out infinite; }
+    .journey-signal span:nth-child(2){animation-delay:180ms}.journey-signal span:nth-child(3){animation-delay:360ms}
+    .journey-stamp { display:grid; justify-items:center; gap:8px; }
+    .journey-stamp img { width:52px; height:52px; display:block; object-fit:contain; filter:drop-shadow(0 10px 14px rgba(0,0,0,.22)); }
+    .card-float-mark { position:absolute; top:15px; right:17px; z-index:2; color:var(--redline); font:21px/1 "DM Serif Display",Georgia,serif; animation:float-mark 3.8s ease-in-out infinite; pointer-events:none; }
+    .card-monogram { width:32px; height:32px; display:block; object-fit:contain; filter:drop-shadow(0 4px 8px rgba(0,0,0,.3)); }
+    .quote-section { background:#131011; box-shadow:inset 0 1px 0 rgba(240,235,227,.12),inset 0 -1px 0 rgba(11,11,12,.42); }
+    .quote-section::before { content:""; position:absolute; top:0; bottom:0; left:0; width:11vw; background:#702427; opacity:.92; }
+    .quote-section::after { content:""; position:absolute; top:0; bottom:0; left:13.8vw; width:1px; background:rgba(232,228,220,.16); }
+    @keyframes ring-drift { from{translate:0 -8px} to{translate:0 12px} } @keyframes cross-drift { from{translate:0 -6px} to{translate:0 10px} }
+    @keyframes note-breathe { from{opacity:.22;letter-spacing:.16em} to{opacity:.66;letter-spacing:.23em} } @keyframes orbit-spin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+    @keyframes signal-pulse { 0%,100%{opacity:.35;transform:scale(.8)} 50%{opacity:1;transform:scale(1.65)} } @keyframes float-mark { 0%,100%{transform:translateY(0) rotate(0)} 50%{transform:translateY(-6px) rotate(9deg)} }
+    @keyframes stamp-float { from{translate:0 0} to{translate:0 -7px} }
+    @media (max-width:720px) {
+      .hero-motion-ring { top:12%; right:18%; width:84px; height:84px; } .hero-motion-cross { top:30%; right:8%; font-size:24px; } .hero-motion-note { right:9%; bottom:22%; font-size:7px; }
+      .hero-monogram-stamp { left:10%; bottom:13%; } .hero-monogram-stamp img { width:32px; height:32px; }
+      .interest-margin-note { top:93px; right:21px; } .archive-section { padding:97px 21px 105px; } .archive-section::before { top:46px; right:21px; }
+      .archive-heading { display:block; margin-bottom:46px; } .archive-heading h2 { margin-top:19px; font-size:clamp(59px,18vw,88px); } .archive-seal { margin-top:22px; }
+      .archive-note { margin-top:29px; } .archive-grid { display:block; } .archive-card,.archive-card:nth-child(2),.archive-card:nth-child(3){min-height:286px;margin:0 0 16px;} .archive-card:last-child{margin-bottom:0;} .archive-card-body{min-height:230px;}
+      .process-section { padding:85px 21px 100px; } .process-heading { margin-bottom:42px; } .process-heading h2{font-size:clamp(59px,18vw,88px);} .process-margin-note{top:0;right:4px;font-size:7px;}
+      .process-grid{display:block;} .process-step,.process-step + .process-step{min-height:173px;padding:21px 44px 24px 0;border-right:0;border-bottom:1px solid rgba(11,11,12,.22);} .process-step:last-child{border-bottom:0;} .process-step h3{margin-top:20px;font-size:30px;} .process-arrow{right:0;bottom:23px;}
+      .journey-stamp { top:66px; right:37px; } .journey-stamp img { width:42px; height:42px; }
+    }
+    @media (prefers-reduced-motion:reduce) { .hero-motion-object,.hero-monogram-stamp img,.skill-media-orbit,.journey-signal span,.card-float-mark{animation:none!important;} }
+  </style>
+</head>
+<body>
+  <div class="site-shell" id="top">
+    <div class="site-grain" aria-hidden="true"></div>
+    <div class="folio-rail" aria-hidden="true"><span>DS / 001</span><i></i><span>INDIA</span></div>
+
+    <header class="site-header">
+      <button class="brand-lockup" data-scroll="top" aria-label="Back to top">
+        <span class="brand-mark" aria-hidden="true"><img src="https://debrajfolio-gwpffsxc.manus.space/manus-storage/debraj-monogram_5d1e57bb.png" alt=""></span>
+        <span class="brand-name">DEBRAJ<br>SADHUKHAN</span>
+      </button>
+      <div class="availability-pill"><span class="availability-dot"></span><span>AVAILABLE FOR PROJECTS</span></div>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false"><span class="menu-icon">≡</span><span class="menu-word">Menu</span></button>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <button data-scroll="about"><span>01</span>About</button>
+        <button data-scroll="interests"><span>02</span>Interests</button>
+        <button data-scroll="archive"><span>03</span>Archive</button>
+        <button data-scroll="journey"><span>04</span>Journey</button>
+        <button data-scroll="contact"><span>05</span>Contact</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-section" id="about">
+        <div class="hero-motion-object hero-motion-ring" data-parallax="0.035" aria-hidden="true"></div>
+        <div class="hero-motion-object hero-motion-cross" data-parallax="-0.025" aria-hidden="true">+</div>
+        <div class="hero-motion-object hero-motion-note" data-parallax="0.06" aria-hidden="true">FIELD NOTE / 001</div>
+        <div class="hero-monogram-stamp reveal" aria-hidden="true"><img src="https://debrajfolio-gwpffsxc.manus.space/manus-storage/debraj-monogram_5d1e57bb.png" alt=""><span>DS / 001</span></div>
+        <div class="hero-watermark" aria-hidden="true">PORTFOLIO</div>
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <div class="section-kicker reveal">01 / ABOUT ME</div>
+            <p class="hero-intro reveal" style="animation-delay:90ms"><span class="red-slash">/</span> A first-year BCA student turning questions into useful things.</p>
+            <h1 class="hero-title reveal" style="animation-delay:150ms">Hi, I'm <em>Debraj</em><br><span>Sadhukhan.</span></h1>
+            <p class="hero-subtitle reveal" style="animation-delay:210ms">BCA AI/ML Student <b>|</b> Web Developer <b>|</b> Cybersecurity Enthusiast</p>
+            <div class="hero-meta reveal" style="animation-delay:270ms"><span class="location-tag"><span class="pin">⌖</span> Based in India</span><span class="meta-line"></span><span class="meta-detail">Open to learning in public</span></div>
+            <button class="text-link reveal" style="animation-delay:330ms" data-scroll="interests">Explore the work <span>↓</span></button>
+          </div>
+          <div class="hero-side">
+            <div class="hero-image-wrap reveal" style="animation-delay:180ms"><img src="https://debrajfolio-gwpffsxc.manus.space/manus-storage/debraj-portrait-editorial_2586985f.png" alt="Portrait of Debraj Sadhukhan"><span class="image-caption">FIG. 01 — DEBRAJ SADHUKHAN</span></div>
+            <div class="hero-index reveal" style="animation-delay:320ms"><span class="mono-label">CURRENTLY EXPLORING</span><ul><li><span class="plus">+</span> Learning AI / ML</li><li><span class="plus">+</span> Web Development</li><li><span class="plus">+</span> Cybersecurity</li></ul></div>
+          </div>
+        </div>
+        <div class="hero-bottom-line" aria-hidden="true"><span>SCROLL TO DISCOVER</span><span class="down">↓</span><span class="line-grow"></span><span>2026 — PRESENT</span></div>
+      </section>
+
+      <section class="interests-section" id="interests">
+        <div class="section-heading-row reveal"><div><div class="section-kicker">02 / SELECTED INTERESTS</div><h2>What I'm<br><em>drawn to.</em></h2></div><p class="section-aside">A working list of the tools, disciplines,<br>and questions shaping my next chapter.</p></div>
+        <div class="interest-margin-note" aria-hidden="true"><span>SELECT / LEARN / REPEAT</span><i></i></div>
+        <div class="skill-grid">
+          <article class="skill-card card-1 reveal"><div class="skill-media"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=88" alt="Laptop showing a code editor on a developer desk"><span class="skill-media-sweep" aria-hidden="true"></span><span class="skill-media-orbit" aria-hidden="true"></span><span class="skill-number">01</span><span class="skill-arrow">↗</span></div><div class="skill-content"><span class="mono-label">BUILD / SHAPE</span><h3>Web Development</h3><p>Front-end systems with a sharp eye for structure, rhythm, and useful details.</p></div></article>
+          <article class="skill-card card-2 reveal"><div class="skill-media"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=88" alt="Close-up of a circuit board with glowing components"><span class="skill-media-sweep" aria-hidden="true"></span><span class="skill-media-orbit" aria-hidden="true"></span><span class="skill-number">02</span><span class="skill-arrow">↗</span></div><div class="skill-content"><span class="mono-label">EXPLORE / MODEL</span><h3>Python &amp; AI/ML</h3><p>Turning curiosity into small experiments, clear logic, and better questions.</p></div></article>
+          <article class="skill-card card-3 reveal"><div class="skill-media"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=88" alt="Close-up of a secure lock and key"><span class="skill-media-sweep" aria-hidden="true"></span><span class="skill-media-orbit" aria-hidden="true"></span><span class="skill-number">03</span><span class="skill-arrow">↗</span></div><div class="skill-content"><span class="mono-label">PROTECT / LEARN</span><h3>Cybersecurity</h3><p>Learning how systems fail, how they hold, and where thoughtful testing begins.</p></div></article>
+          <article class="skill-card card-4 reveal"><div class="skill-media"><img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=88" alt="Editorial design desk with colorful printed layouts"><span class="skill-media-sweep" aria-hidden="true"></span><span class="skill-media-orbit" aria-hidden="true"></span><span class="skill-number">04</span><span class="skill-arrow">↗</span></div><div class="skill-content"><span class="mono-label">FRAME / FEEL</span><h3>UI/UX &amp; Design</h3><p>Designing interfaces that make the next action obvious without losing character.</p></div></article>
+        </div>
+      </section>
+
+      <section class="archive-section" id="archive">
+        <div class="archive-heading reveal"><div><div class="section-kicker">03 / THE ARCHIVE</div><h2>The work will<br><em>live here.</em></h2><div class="archive-seal" aria-hidden="true"><img src="https://debrajfolio-gwpffsxc.manus.space/manus-storage/debraj-monogram_5d1e57bb.png" alt=""><span>DS / ARCHIVE</span></div></div><div class="archive-note"><span class="red-slash">/</span><p>A growing shelf for real builds, honest experiments, and the lessons that stay after launch.</p></div></div>
+        <div class="archive-grid">
+          <article class="archive-card reveal archive-card-1"><div class="archive-card-top"><span>CASE STUDY / 01</span><span class="archive-card-mark">↗</span></div><div class="archive-card-body"><span class="archive-status">READY WHEN THE BUILD IS</span><div class="archive-symbol" aria-hidden="true">D/</div><p>A place for the first polished project: context, decisions, and what changed along the way.</p></div></article>
+          <article class="archive-card reveal archive-card-2"><div class="archive-card-top"><span>EXPERIMENT / 02</span><span class="archive-card-mark">↗</span></div><div class="archive-card-body"><span class="archive-status">NEXT QUESTION</span><div class="archive-symbol" aria-hidden="true">∿</div><p>A small lab for testing an idea before it becomes a bigger, better question.</p></div></article>
+          <article class="archive-card reveal archive-card-3"><div class="archive-card-top"><span>BUILD LOG / 03</span><span class="archive-card-mark">↗</span></div><div class="archive-card-body"><span class="archive-status">KEEP THE THREAD</span><div class="archive-symbol" aria-hidden="true">+</div><p>Short notes from the process — what worked, what broke, and what comes next.</p></div></article>
+        </div>
+      </section>
+
+      <section class="process-section">
+        <div class="process-heading reveal"><div class="section-kicker">A SIMPLE METHOD</div><h2>How I <em>make.</em></h2><span class="process-margin-note">BUILDING IS A LOOP / 001</span></div>
+        <div class="process-grid">
+          <div class="process-step reveal"><span class="process-number">01</span><h3>Observe</h3><p>Start with the question, the user, and the smallest useful version.</p><span class="process-arrow">↗</span></div>
+          <div class="process-step reveal"><span class="process-number">02</span><h3>Build</h3><p>Make the structure clear, then give the details enough character to matter.</p><span class="process-arrow">↗</span></div>
+          <div class="process-step reveal"><span class="process-number">03</span><h3>Share</h3><p>Put the work in the open, listen closely, and carry the lesson forward.</p><span class="process-arrow">↗</span></div>
+        </div>
+      </section>
+
+      <section class="journey-section" id="journey">
+        <div class="journey-signal" data-parallax="-0.04" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="journey-stamp reveal" aria-hidden="true"><img src="https://debrajfolio-gwpffsxc.manus.space/manus-storage/debraj-monogram_5d1e57bb.png" alt=""><span>2026</span></div>
+        <div class="journey-left">        <div class="section-kicker reveal">04 / THE JOURNEY</div><h2 class="reveal">Still<br><em>becoming.</em></h2><p class="journey-lede reveal">There's no finished version yet. That's the point. Every project, class, and late-night rabbit hole is part of the build.</p><div class="journey-footnote reveal"><span class="red-slash">/</span><span>Curiosity is the curriculum.</span></div></div>
+        <div class="journey-right"><div class="timeline">
+          <div class="timeline-item reveal"><div class="timeline-marker"><span></span></div><div class="timeline-copy"><span class="timeline-date">2026 — NOW</span><h3>BCA in AI / ML</h3><p>JIS College of Engineering</p></div><span class="timeline-note">Pursuing</span></div>
+          <div class="timeline-item reveal"><div class="timeline-marker"><span></span></div><div class="timeline-copy"><span class="timeline-date">2026</span><h3>Class 12</h3><p>PM SHRI KENDRIYA VIDAYALAYA NO.2 ISHHAPORE</p></div><span class="timeline-note">Completed</span></div>
+          <div class="timeline-item reveal"><div class="timeline-marker"><span></span></div><div class="timeline-copy"><span class="timeline-date">2023</span><h3>Class 10</h3><p>KENDRIYA VIDAYALAYA NO.1 ISHHAPORE</p></div><span class="timeline-note">Completed</span></div>
+        </div><div class="tools-block reveal"><div class="mono-label">TOOLS IN THE MARGIN</div><div class="tool-list"><span>C</span><span>C++</span><span>Python</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>AI / ML basics</span><span>Cybersecurity</span></div></div></div>
+      </section>
+
+      <section class="quote-section"><div class="quote-watermark" aria-hidden="true">MAKE</div><div class="quote-inner reveal"><div class="section-kicker light-kicker">A NOTE TO SELF</div><blockquote>“Learn deeply.<br><em>Build boldly.</em><br>Share what works.”</blockquote><div class="quote-footer"><span>DEBRAJ SADHUKHAN</span><span class="quote-rule"></span><button data-scroll="contact">Let's create something together <span>→</span></button></div></div></section>
+
+      <section class="contact-section" id="contact">
+        <div class="contact-grid"><div class="contact-copy">        <div class="section-kicker reveal">05 / CONTACT</div><h2 class="reveal">Have a good<br><em>question?</em></h2><p class="contact-lede reveal">I'm currently open for internships, collaborations, and conversations with people who like making things.</p><button class="email-action reveal" id="copy-email"><span class="email-icon">✉</span><span data-email-label>debraj.sadhukhan@gmail.com</span><span data-copy-icon>⧉</span></button><div class="social-row reveal"><a href="https://github.com/" target="_blank" rel="noreferrer">◌ GitHub <span>↗</span></a><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">in LinkedIn <span>↗</span></a></div></div>
+          <div class="contact-art reveal"><div class="contact-card-shadow"></div><div class="contact-card"><div class="card-float-mark" aria-hidden="true">↗</div><div class="card-topbar"><span class="window-dots"><i></i><i></i><i></i></span><span class="card-url">debraj / portfolio</span><span class="card-ping"><span></span> live</span></div><div class="card-body"><div class="card-brand"><img class="card-monogram" src="https://debrajfolio-gwpffsxc.manus.space/manus-storage/debraj-monogram_5d1e57bb.png" alt=""><span>DEBRAJ<br>SADHUKHAN</span></div><span class="card-kicker">A PERSONAL LAB NOTEBOOK</span><h3>Ideas in.<br><em>Things out.</em></h3><div class="card-progress"><div><span>LEARNING</span><b>72%</b></div><div class="progress-track"><i></i></div></div><a href="#top" class="visit-button" data-scroll="top">Visit portfolio <span>↗</span></a></div><div class="card-footer"><span>JIS / BCA AI-ML</span><span>INDIA / 2026</span></div></div></div>
+        </div>
+        <footer class="site-footer"><span>© 2026 DEBRAJ SADHUKHAN</span><span>BUILT WITH CURIOSITY <span class="footer-dot">●</span></span><button data-scroll="top" aria-label="Back to top">↑</button></footer>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Redline Editorial interaction layer: minimal, fast, and keyboard-friendly.
+    const nav = document.querySelector('.site-nav');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuWord = document.querySelector('.menu-word');
+    const menuIcon = document.querySelector('.menu-icon');
+
+    function scrollToId(id) {
+      const target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function closeMenu() {
+      nav.classList.remove('is-open');
+      document.body.classList.remove('menu-is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open navigation');
+      menuWord.textContent = 'Menu';
+      menuIcon.textContent = '≡';
+    }
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('is-open');
+      document.body.classList.toggle('menu-is-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+      menuWord.textContent = isOpen ? 'Close' : 'Menu';
+      menuIcon.textContent = isOpen ? '×' : '≡';
+    });
+
+    document.querySelectorAll('[data-scroll]').forEach((element) => {
+      element.addEventListener('click', (event) => {
+        const id = element.getAttribute('data-scroll');
+        if (element.tagName === 'A') event.preventDefault();
+        closeMenu();
+        scrollToId(id);
+      });
+    });
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.13 });
+    document.querySelectorAll('.reveal').forEach((item) => revealObserver.observe(item));
+
+    const hero = document.querySelector('.hero-section');
+    const parallaxItems = Array.from(document.querySelectorAll('[data-parallax]'));
+    let scrollFrame = 0;
+    function updateScrollDepth() {
+      if (scrollFrame) return;
+      scrollFrame = window.requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        parallaxItems.forEach((item) => {
+          const speed = Number(item.dataset.parallax || '0');
+          item.style.setProperty('--scroll-shift', `${scrollY * speed}px`);
+        });
+        scrollFrame = 0;
+      });
+    }
+    function updatePointerDepth(event) {
+      if (!hero || window.innerWidth < 720) return;
+      const bounds = hero.getBoundingClientRect();
+      hero.style.setProperty('--pointer-x', String(event.clientX - bounds.left - bounds.width / 2));
+      hero.style.setProperty('--pointer-y', String(event.clientY - bounds.top - bounds.height / 2));
+    }
+    window.addEventListener('scroll', updateScrollDepth, { passive: true });
+    if (hero) hero.addEventListener('pointermove', updatePointerDepth, { passive: true });
+    updateScrollDepth();
+
+    const copyButton = document.getElementById('copy-email');
+    const emailLabel = copyButton.querySelector('[data-email-label]');
+    const copyIcon = copyButton.querySelector('[data-copy-icon]');
+    copyButton.addEventListener('click', async () => {
+      const email = 'debraj.sadhukhan@gmail.com';
+      try {
+        await navigator.clipboard.writeText(email);
+        emailLabel.textContent = 'Email copied';
+        copyIcon.textContent = '✓';
+        window.setTimeout(() => { emailLabel.textContent = email; copyIcon.textContent = '⧉'; }, 1800);
+      } catch {
+        window.location.href = 'mailto:' + email;
+      }
+    });
+  </script>
+</body>
+</html>
